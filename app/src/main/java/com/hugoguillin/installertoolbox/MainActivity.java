@@ -2,17 +2,20 @@ package com.hugoguillin.installertoolbox;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +35,29 @@ public class MainActivity extends AppCompatActivity {
         adapter = new AccionesAdapter(this, datosAcciones);
         recyclerView.setAdapter(adapter);
         iniciarDatos();
+
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT | ItemTouchHelper.UP |
+                        ItemTouchHelper.DOWN, 0
+        ) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                                  @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder viewHolder1)
+            {
+                int desde = viewHolder.getAdapterPosition();
+                int hacia = viewHolder1.getAdapterPosition();
+                Collections.swap(datosAcciones, desde, hacia);
+                adapter.notifyItemMoved(desde, hacia);
+                return true;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+
+            }
+        });
+        helper.attachToRecyclerView(recyclerView);
     }
 
     private void iniciarDatos(){
