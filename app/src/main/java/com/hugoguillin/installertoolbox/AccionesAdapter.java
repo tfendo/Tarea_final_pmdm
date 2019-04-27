@@ -6,7 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -43,16 +46,19 @@ public class AccionesAdapter extends RecyclerView.Adapter<AccionesAdapter.ViewHo
 
         private TextView vTitulo;
         private TextView vDescripcion;
+        private ImageView vImagen;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             vTitulo = itemView.findViewById(R.id.titulo);
             vDescripcion = itemView.findViewById(R.id.descripcion);
+            vImagen = itemView.findViewById(R.id.imagenAccion);
         }
 
         void enlazar(Acciones accion){
             vTitulo.setText(accion.getTitulo());
             vDescripcion.setText(accion.getDescripcion());
+            Glide.with(context).load(accion.getImagen()).into(vImagen);
         }
     }
 }

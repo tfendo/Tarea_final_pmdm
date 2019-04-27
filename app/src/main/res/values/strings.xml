@@ -19,4 +19,12 @@
         <item>Consulta información técnica relativa a instalaciones</item>
         <item>Consulta el convenio del metal de A Coruña</item>
     </string-array>
+
+    <array name="imagenes_acciones">
+        <item>@drawable/parte_horas</item>
+        <item>@drawable/trabajos_pendientes</item>
+        <item>@drawable/calendario</item>
+        <item>@drawable/info_tecnica</item>
+        <item>@drawable/convenio</item>
+    </array>
 </resources>

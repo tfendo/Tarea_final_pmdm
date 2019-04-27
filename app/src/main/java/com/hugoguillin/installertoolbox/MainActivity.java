@@ -1,5 +1,6 @@
 package com.hugoguillin.installertoolbox;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -36,13 +37,16 @@ public class MainActivity extends AppCompatActivity {
     private void iniciarDatos(){
         String[] listaAcciones = getResources().getStringArray(R.array.acciones);
         String[] listaDescripciones = getResources().getStringArray(R.array.descripcion_acciones);
+        TypedArray recursosImagenes = getResources().obtainTypedArray(R.array.imagenes_acciones);
 
         datosAcciones.clear();
 
         for (int i = 0; i<listaAcciones.length; i++){
-            datosAcciones.add(new Acciones(listaAcciones[i], listaDescripciones[i]));
+            datosAcciones.add(new Acciones(listaAcciones[i], listaDescripciones[i],
+                    recursosImagenes.getResourceId(i,0)));
         }
 
+        recursosImagenes.recycle();
         adapter.notifyDataSetChanged();
     }
 
