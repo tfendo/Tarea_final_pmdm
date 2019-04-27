@@ -27,4 +27,15 @@
         <item>@drawable/info_tecnica</item>
         <item>@drawable/convenio</item>
     </array>
+
+
+    <string name="titulo_acristalamiento">Acristalamiento</string>
+    <string name="titulo_metalica">Carp. metálica</string>
+    <string name="titulo_pvc">Carp. PVC</string>
+    <string name="titulo_persianas">Persianas</string>
+
+    <string name="acristalamiento">Esto es un texto de muestra para el apartado de acristalamiento.</string>
+    <string name="carp_metalica">Esto es un texto de muestra para el apartado de carpintería metálica</string>
+    <string name="carp_pvc">Esto es un texto de muestra para el apartado de carpintería de PVC</string>
+    <string name="persianas">Esto es un texto de muestra para el apartado de persianas eléctricas</string>
 </resources>
