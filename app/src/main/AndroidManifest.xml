@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hugoguillin.installertoolbox">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,21 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Convenio"
+
+        <activity
+            android:name=".Convenio"
             android:label="Convenio del metal A Coruña"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Info_tecnica"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Info_tecnica"
             android:label="Información técnica"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Calendario"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Calendario"
             android:label="Calendario laboral"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Trabajos_pendientes"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Trabajos_pendientes"
             android:label="Trabajos pendientes"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Parte_horas"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Parte_horas"
             android:label="Parte de horas"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
