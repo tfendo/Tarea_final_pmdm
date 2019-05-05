@@ -45,4 +45,26 @@
     <string name="estado_notify_descarga_calendario">Descargando...</string>
     <string name="textView_calendario_descargado">Calendario descargado correctamente</string>
     <string name="toast_calendario_descargado">Descarga completada</string>
+
+    <string name="descargando_convenio">Descargando convenio de A Coruña...</string>
+    <string name="texto_convenio"><b>CONVENIO COLECTIVO PROVINCIAL PARA LA INDUSTRIA SIDEROMETALÚRGICA DE LA PROVINCIA DE LA CORUÑA 2015-2016-2017-2018 y 2019</b>
+        \n\n
+        <b>Capítulo 1</b>
+        \n\n
+        <b>Ámbitos de aplicación</b>
+        \n\n
+        <b>Artículo 1- Ámbito funcional</b>
+        \n\n
+        De conformidad con el artículo 2 del II Convenio colectivo estatal de la industria, la tecnología y los servicios del sector del metal (BOE 19/06/2017), el ámbito funcional del Sector del Metal comprende a todas las empresas y trabajadores que realizan su actividad, tanto en procesos de fabricación, elaboración o transformación, como en los de montaje, reparación, conservación, mantenimiento, almacenaje o puesta en funcionamiento de equipos e instalaciones industriales, que se relacionen con el Sector del Metal.
+        \n\n
+        De este modo, quedan integradas en el campo de aplicación de este Convenio las siguientes actividades y productos: metalurgia, siderurgia; automoción y sus componentes; construcción naval y su industria auxiliar; industria aeroespacial y sus componentes, así como material ferroviario, componentes de energías renovables; robótica, domótica, automatismos y su programación, ordenadores y sus periféricos o dispositivos auxiliares; circuitos impresos e integrados y artículos similares; infraestructuras tecnológicas; equipos y tecnologías de telecomunicaciones y de la información; y todo tipo de equipos, productos y aparatos mecánicos, eléctricos o electrónicos
+        \n\n
+        Forman parte también de dicho ámbito las empresas dedicadas a la ingeniería, servicios técnicos de ingeniería, análisis, inspección y ensayos, fabricación, montaje y/o mantenimiento, que se lleven a cabo en la industria y en las plantas de generación de energía eléctrica, petróleo, gas y tratamiento de aguas; así como, las empresas dedicadas a tendidos de líneas de conducción de energía, de cables y redes de telefonía, informática, satélites, señalización y electrificación de ferrocarriles, instalaciones eléctricas y de instrumentación, de aire acondicionado y frio industrial, fontanería, calefacción y otras actividades auxiliares y/o complementarias del Sector.
+        \n\n
+        Asimismo, se incluyen las actividades de soldadura y tecnologías de unión, calorifugado, grúas-torre, placas solares, y las de joyería, relojería o bisutería; juguetes; cubertería y menaje; cerrajería; armas; aparatos médicos; industria óptica y mecánica de precisión; lámparas y aparatos eléctricos; conservación, corte y reposición de contadores y lectores de contadores eléctricos; recuperación y reciclaje de materias primas secundarias metálicas, así como aquellas otras actividades específicas y/o complementarias del Sector.
+        \n\n
+        Igualmente, se incluyen las actividades de fabricación, instalación, mantenimiento o montaje de equipamientos industriales, carpintería metálica, calderería, mecanización y automatización, incluidas en el sector o en cualquier otro que requiera tales servicios, así como la limpieza de maquinaria industrial.
+
+    </string>
+    <string name="boton_convenio">Descargar convenio</string>
 </resources>

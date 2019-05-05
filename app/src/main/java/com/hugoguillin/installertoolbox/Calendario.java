@@ -23,7 +23,6 @@ public class Calendario extends AppCompatActivity {
     static final String FUENTE_DATOS = "https://www.dropbox.com/s/yp373fi7zkklvmm/Calendario_laboral_2019.pdf?dl=1";
     private static final String VISIBLE = "textViewVisible";
     private static String TEXTO = "textoActual";
-    private static DownloadManager dManager;
     private TextView muestra_festivos;
     private long descargaID;
     private BroadcastReceiver receiver = new BroadcastReceiver() {
