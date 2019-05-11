@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".Trabajos_pendientes"
+            android:label="Trabajos pendientes"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Convenio"
             android:label="Convenio del metal A Coruña"
@@ -25,10 +29,6 @@
         <activity
             android:name=".Calendario"
             android:label="Calendario laboral"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Trabajos_pendientes"
-            android:label="Trabajos pendientes"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Parte_horas"

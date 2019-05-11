@@ -67,4 +67,16 @@
 
     </string>
     <string name="boton_convenio">Descargar convenio</string>
+    <string name="title_activity_trabajos_pendientes">Trabajos pendientes</string>
+    <string name="textView_lista">Lista de trabajos pendientes</string>
+    <string name="label_trabajo">Tareas pendientes</string>
+    <string name="label_trabajos_pendientes">Añadir evento</string>
+    <string name="label_descripcion_trabajo">Descripción del trabajo</string>
+    <string name="nombre_cliente">Nombre del cliente</string>
+    <string name="breve_descripcion">Breve descripción del trabajo pendiente</string>
+    <string name="boton_anhadir">Añadir evento</string>
+    <string name="label_cliente">Cliente</string>
+    <string name="label_listado">Listado de trabajos pendientes</string>
+    <string name="toast_anhadirEvento">Primero debes rellenar los campos</string>
+    <string name="toast_anhadirEvento1">Introduce una descripción del trabajo</string>
 </resources>
