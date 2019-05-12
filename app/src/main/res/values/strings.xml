@@ -79,4 +79,13 @@
     <string name="label_listado">Listado de trabajos pendientes</string>
     <string name="toast_anhadirEvento">Primero debes rellenar los campos</string>
     <string name="toast_anhadirEvento1">Introduce una descripción del trabajo</string>
+    <string name="title_activity_parte_horas">Parte de horas</string>
+    <string name="label_fecha">FECHA</string>
+    <string name="label_hora_inicio">HORA INICIO</string>
+    <string name="label_hora_fin">HORA FIN</string>
+    <string name="label_descripcion">DESCRIPCIÓN</string>
+    <string name="boton_anadir_parte">Añadir entrada al parte de horas</string>
+    <string name="no_entradas_viewholder">No hay entradas</string>
+    <string name="toast_acitivity_result">No se ha guardado la entrada</string>
+    <string name="toast_activity_update_result">No se ha podido actualizar la entrada</string>
 </resources>

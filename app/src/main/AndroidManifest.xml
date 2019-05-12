@@ -14,10 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Rellenar_parte_horas"
+            android:label="Nueva entrada"
+            android:parentActivityName=".Parte_horas"/>
+        <activity
+            android:name=".Parte_horas"
+            android:label="@string/title_activity_parte_horas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hugoguillin.installertoolbox.MainActivity" />
+        </activity>
+        <activity
             android:name=".Trabajos_pendientes"
             android:label="Trabajos pendientes"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Convenio"
             android:label="Convenio del metal A Coruña"
@@ -29,10 +42,6 @@
         <activity
             android:name=".Calendario"
             android:label="Calendario laboral"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".Parte_horas"
-            android:label="Parte de horas"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
