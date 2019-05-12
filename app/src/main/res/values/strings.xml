@@ -41,7 +41,7 @@
     <string name="label_consultar">Consulta los días festivos de tu municipio</string>
     <string name="boton_consultar">Descargar calendario</string>
     <string name="festivos">Descargando...</string>
-    <string name="titulo_notify_descarga_calendario">Calendario 2019</string>
+    <string name="titulo_notify_descarga_calendario">Calendario_2019.pdf</string>
     <string name="estado_notify_descarga_calendario">Descargando...</string>
     <string name="textView_calendario_descargado">Calendario descargado correctamente</string>
     <string name="toast_calendario_descargado">Descarga completada</string>

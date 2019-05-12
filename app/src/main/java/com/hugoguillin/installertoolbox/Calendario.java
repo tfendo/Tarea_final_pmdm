@@ -1,13 +1,18 @@
 package com.hugoguillin.installertoolbox;
 
 import android.app.DownloadManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +26,10 @@ import java.io.FileNotFoundException;
 public class Calendario extends AppCompatActivity {
 
     static final String FUENTE_DATOS = "https://www.dropbox.com/s/yp373fi7zkklvmm/Calendario_laboral_2019.pdf?dl=1";
+    static final String CANAL_CALENDARIO_ID = "canal_notificacion_calendario";
+    private static final int NOTIFICACION_ID = 0;
+
+    private NotificationManager manager;
     private static final String VISIBLE = "textViewVisible";
     private static String TEXTO = "textoActual";
     private TextView muestra_festivos;
@@ -38,6 +47,8 @@ public class Calendario extends AppCompatActivity {
                             }
                         }).show();
                 muestra_festivos.setText(getString(R.string.textView_calendario_descargado));
+                NotificationCompat.Builder builder = getNotificationBuilder();
+                manager.notify(NOTIFICACION_ID, builder.build());
             }
         }
     };
@@ -58,6 +69,7 @@ public class Calendario extends AppCompatActivity {
             }
             muestra_festivos.setText(savedInstanceState.getString(TEXTO));
         }
+        crearCanalNotificacion();
     }
 
     @Override
@@ -100,5 +112,33 @@ public class Calendario extends AppCompatActivity {
         }
     }
 
+    public void crearCanalNotificacion(){
+        manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel canal = new NotificationChannel(CANAL_CALENDARIO_ID,
+                    "Notificación de Calendario", NotificationManager.IMPORTANCE_HIGH);
+            canal.enableLights(true);
+            canal.setLightColor(Color.BLUE);
+            canal.setDescription("Notificaciones de Calendario");
+            manager.createNotificationChannel(canal);
+        }
+    }
+
+    private NotificationCompat.Builder getNotificationBuilder(){
+        Intent intent = new Intent(this, Calendario.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                NOTIFICACION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CANAL_CALENDARIO_ID)
+                .setContentTitle("Calendario descargado")
+                .setContentText("Ya puedes ver los días festivos de este año")
+                .setSmallIcon(R.drawable.ic_installertb)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setDefaults(NotificationCompat.DEFAULT_ALL);
+
+        return builder;
+    }
 
 }
