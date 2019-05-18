@@ -1,12 +1,22 @@
 package com.hugoguillin.installertoolbox;
 
+import android.app.AlarmManager;
+import android.app.DownloadManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +25,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class Parte_horas extends AppCompatActivity {
@@ -25,7 +36,12 @@ public class Parte_horas extends AppCompatActivity {
     public static final String EXTRA_DATA_ACTUALIZAR_ENTRADA = "entrada_a_actualizar";
     public static final String EXTRA_DATA_ID = "extra_data_id";
 
+    private static final int NOTIFICATION_ID = 0;
+    private static final String CANAL_PARTES_ID = "canal_notificaciones_partes";
+
     private ParteViewModel parteViewModel;
+    private NotificationManager manager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +49,7 @@ public class Parte_horas extends AppCompatActivity {
         setContentView(R.layout.activity_parte_horas);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
         RecyclerView recyclerView = findViewById(R.id.parte_horas_recyclerview);
         final ParteHorasAdapter adapter = new ParteHorasAdapter(this);
@@ -80,6 +97,23 @@ public class Parte_horas extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        crearCanalNotificacion();
+
+        //=======SE CREA EL ALARMMANAGER PARA RECORDAR HACER EL PARTE DE HORAS=========
+        Intent notyIntent = new Intent(this, ParteReceiver.class);
+        PendingIntent notyPendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION_ID,
+                notyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+        //Se fija la alarma una vez al día a las 18 horas
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 18);
+        //Se usa el método setInexactRepeating() porque no es necesario que active el teléfono a esa hora exactamente
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, notyPendingIntent);
+        //=========================================================
     }
 
     @Override
@@ -111,5 +145,18 @@ public class Parte_horas extends AppCompatActivity {
         intent.putExtra(EXTRA_DATA_ACTUALIZAR_ENTRADA, entrada.getEntrada());
         intent.putExtra(EXTRA_DATA_ID, entrada.getId());
         startActivityForResult(intent, ACTUALIZAR_ENTRADA_REQUEST_CODE);
+    }
+
+    public void crearCanalNotificacion(){
+        manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel canal = new NotificationChannel(CANAL_PARTES_ID,
+                    "Notificación partes de horas", NotificationManager.IMPORTANCE_HIGH);
+            canal.enableLights(true);
+            canal.setLightColor(Color.RED);
+            canal.setDescription("Notificación diaria como recordatorio de cubrir el parte de horas");
+            manager.createNotificationChannel(canal);
+        }
     }
 }

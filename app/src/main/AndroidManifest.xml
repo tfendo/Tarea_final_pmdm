@@ -13,10 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver
+            android:name=".ParteReceiver"
+            android:enabled="true"
+            android:exported="false"></receiver>
+
         <activity
             android:name=".Rellenar_parte_horas"
             android:label="Nueva entrada"
-            android:parentActivityName=".Parte_horas"/>
+            android:parentActivityName=".Parte_horas" />
         <activity
             android:name=".Parte_horas"
             android:label="@string/title_activity_parte_horas"
