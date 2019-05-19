@@ -34,7 +34,7 @@ public class Trabajos_pendientes extends AppCompatActivity {
         cliente = findViewById(R.id.nombre_cliente);
         trabajo = findViewById(R.id.descripcion_trabajo);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.trabajos_pendientes_recyclerView);
         adapter = new TrabajoAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

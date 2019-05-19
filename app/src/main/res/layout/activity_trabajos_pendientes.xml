@@ -89,7 +89,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/trabajos_pendientes_recyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 

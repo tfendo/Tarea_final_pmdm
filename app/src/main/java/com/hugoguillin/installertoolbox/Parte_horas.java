@@ -152,10 +152,10 @@ public class Parte_horas extends AppCompatActivity {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel canal = new NotificationChannel(CANAL_PARTES_ID,
-                    "Notificación partes de horas", NotificationManager.IMPORTANCE_HIGH);
+                    getString(R.string.nombre_canal_parte_horas), NotificationManager.IMPORTANCE_HIGH);
             canal.enableLights(true);
             canal.setLightColor(Color.RED);
-            canal.setDescription("Notificación diaria como recordatorio de cubrir el parte de horas");
+            canal.setDescription(getString(R.string.desc_canal_parte_horas));
             manager.createNotificationChannel(canal);
         }
     }
